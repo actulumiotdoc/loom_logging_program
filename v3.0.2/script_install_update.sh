@@ -3407,7 +3407,7 @@ cat << 'EOF' > $flows
         "type": "function",
         "z": "9f979da7e8a5400d",
         "name": "json",
-        "func": "const item = JSON.parse(msg.payload);\nflow.set(\"code\", item.code);\nflow.set(\"source\", item.source);\nflow.set(\"circumferance\", item.circumferance);\nflow.set(\"gearratio\", item.gearratio);\nmsg.gear = item[`gear-ratio`];\nmsg.circumferance = item.circumferance;\nreturn msg;",
+        "func": "const item = JSON.parse(msg.payload);\nflow.set(\"code\", item.code);\nflow.set(\"source\", item.source);\nflow.set(\"circumferance\", item.circumferance);\nflow.set(\"gearratio\", item.gearratio);\nmsg.gear = item[`gearratio`];\nmsg.circumferance = item.circumferance;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
