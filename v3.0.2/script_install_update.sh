@@ -24,7 +24,7 @@ cat << 'EOF' > $flows
     {
         "id": "777823ab3e1fee97",
         "type": "tab",
-        "label": "Logging 3.0.1",
+        "label": "Logging 3.0.2",
         "disabled": false,
         "info": "",
         "env": []
