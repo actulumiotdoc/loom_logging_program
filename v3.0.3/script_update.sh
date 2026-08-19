@@ -12,7 +12,7 @@ ADD COLUMN pulse_main_spd INTEGER DEFAULT 0;
 
 rm -rf $flows
 
-cat << "EOF" > $flows 
+cat << 'EOF' > $flows 
 [
     {
         "id": "777823ab3e1fee97",
