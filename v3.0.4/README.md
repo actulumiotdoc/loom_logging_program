@@ -1,4 +1,4 @@
-# Loom Logging V3.0.4
+# Loom Telemetry Logging V3.0.4
 
 ## **ฟีเจอร์โปรแกรม Loom Telemetry Logging V3.0.4**
 - ใช้เซ็นเซอร์ใต้ฐานเครื่องทอสำหรับการคำนวณร่วมกับความถี่หน้าผ้า
