@@ -24,4 +24,5 @@
 
 **เปลี่ยนฐานข้อมูล**
 - [x] ปรับปรุง database productions details ใหม่ทั้งหมด
-<img width="1350" height="765" alt="image" src="https://github.com/user-attachments/assets/45c48475-ffe4-41a2-bf1f-2e862f298fac" />
+- [ ] <img width="1079" height="639" alt="image" src="https://github.com/user-attachments/assets/6a78b275-7f4d-457b-b3d8-e7a5633a3fe1" />
+
