@@ -1,4 +1,4 @@
-<img width="1350" height="765" alt="image" src="https://github.com/user-attachments/assets/90919014-329e-428d-9ceb-fb7c71d03857" /># Loom Telemetry Logging V3.0.4
+# Loom Telemetry Logging V3.0.4
 
 ## **ฟีเจอร์โปรแกรม Loom Telemetry Logging V3.0.4**
 - ใช้เซ็นเซอร์ใต้ฐานเครื่องทอสำหรับการคำนวณร่วมกับความถี่หน้าผ้า
