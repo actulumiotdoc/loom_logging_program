@@ -4,7 +4,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
     {
         "id": "777823ab3e1fee97",
         "type": "tab",
-        "label": "telemetry logging 3.0.4",
+        "label": "telemetry logging 3.0.5",
         "disabled": false,
         "info": "",
         "env": []
@@ -497,14 +497,25 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "info": "",
         "category": "Special Node",
         "in": [],
-        "out": [],
+        "out": [
+            {
+                "x": 420,
+                "y": 380,
+                "wires": [
+                    {
+                        "id": "542c86972aa9deda",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
         "env": [],
         "meta": {},
         "color": "#ff3636",
         "icon": "node-red-contrib-chartjs/pie_chart.png",
         "status": {
-            "x": 480,
-            "y": 980,
+            "x": 260,
+            "y": 820,
             "wires": [
                 {
                     "id": "4e1639b8fbf865ce",
@@ -749,11 +760,11 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "color": "#34bdeb",
         "icon": "node-red/debug.svg",
         "status": {
-            "x": 980,
-            "y": 80,
+            "x": 660,
+            "y": 160,
             "wires": [
                 {
-                    "id": "454021c4bb24481c",
+                    "id": "fa934ef394c1937f",
                     "port": 0
                 }
             ]
@@ -849,7 +860,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         ],
         "x": 44,
         "y": 479,
-        "w": 738,
+        "w": 602,
         "h": 138
     },
     {
@@ -880,17 +891,17 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
             "f54eda370da4361a",
             "ddb434094e4d4a5d",
             "6a1ceea0c28a3829",
-            "6640a6b528aefbf4",
             "b924e6dda8451de8",
             "f7544cee331cef91",
             "6926e8e25fd7b874",
             "389acaadd61dc1d7",
             "b2405502e54e677a",
-            "76c5ff2fd0a1c2f1"
+            "76c5ff2fd0a1c2f1",
+            "eb4afad08553b36c"
         ],
         "x": 44,
         "y": 19,
-        "w": 842,
+        "w": 852,
         "h": 282
     },
     {
@@ -1069,7 +1080,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
     {
         "id": "952156841f214b55",
         "type": "ui-group",
-        "name": "Configuration",
+        "name": "Data Logging",
         "page": "20308079d89423ea",
         "width": "12",
         "height": 1,
@@ -1151,56 +1162,12 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "groupType": "default"
     },
     {
-        "id": "e8aecb5c6e078bca",
-        "type": "ui-spacer",
-        "group": "952156841f214b55",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 5,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "3f1d479249d6e64b",
-        "type": "ui-spacer",
-        "group": "952156841f214b55",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 2,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
         "id": "5548435eafd9f892",
         "type": "ui-spacer",
         "group": "952156841f214b55",
         "name": "spacer",
         "tooltip": "",
-        "order": 1,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "e031b52fee14c5c0",
-        "type": "ui-spacer",
-        "group": "952156841f214b55",
-        "name": "spacer",
-        "tooltip": "",
         "order": 3,
-        "width": 1,
-        "height": 1,
-        "className": ""
-    },
-    {
-        "id": "3ab6626615c341ab",
-        "type": "ui-spacer",
-        "group": "952156841f214b55",
-        "name": "spacer",
-        "tooltip": "",
-        "order": 4,
         "width": 1,
         "height": 1,
         "className": ""
@@ -1225,7 +1192,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "group": "952156841f214b55",
         "name": "spacer",
         "tooltip": "",
-        "order": 10,
+        "order": 5,
         "width": 1,
         "height": 1,
         "className": ""
@@ -3297,8 +3264,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "z": "9f979da7e8a5400d",
         "group": "952156841f214b55",
         "name": "",
-        "label": "ตั้งค่า PLC Variable",
-        "order": 6,
+        "label": "ตั้งค่า Variable",
+        "order": 2,
         "width": "2",
         "height": "1",
         "emulateClick": false,
@@ -3322,7 +3289,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "enablePointerup": false,
         "pointerupPayload": "",
         "pointerupPayloadType": "str",
-        "x": 190,
+        "x": 180,
         "y": 100,
         "wires": [
             [
@@ -3390,7 +3357,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "9f979da7e8a5400d",
         "name": "json",
-        "func": "const item = JSON.parse(msg.payload);\nflow.set(\"code\", item.code);\nflow.set(\"source\", item.source);\nflow.set(\"circumferance\", item.circumferance);\nflow.set(\"gearratio\", item.gearratio);\nmsg.gear = item[`gear-ratio`];\nmsg.circumferance = item.circumferance;\nreturn msg;",
+        "func": "const item = JSON.parse(msg.payload);\nconst code = item.code;\nconst source = item.source;\nconst circumferance = item.circumferance;\nconst gearratio = item.gearratio;\nconst weft = item.weft;\nconst botToken = item.botToken;\nconst chatId = item.chatId;\nconst stateCalibrate = item.stateCalibrate;\nmsg.payload = {\n    'code': code,\n    'source': source,\n    'circumferance': circumferance,\n    'gearratio': gearratio,\n    'weft': weft,\n    'token': botToken,\n    'chatid': chatId\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3398,26 +3365,6 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "finalize": "",
         "libs": [],
         "x": 530,
-        "y": 140,
-        "wires": [
-            [
-                "efb259636c782777"
-            ]
-        ]
-    },
-    {
-        "id": "efb259636c782777",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "function 17",
-        "func": "msg.payload = {\n    'gearratio': flow.get(\"gearratio\"),\n    'circumferance': flow.get(\"circumferance\"),\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 690,
         "y": 140,
         "wires": [
             [
@@ -3459,9 +3406,23 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "group": "d850f97a7e8193d4",
         "label": "ตั้งค่าตัวแปร",
         "order": 1,
-        "width": "4",
-        "height": "4",
+        "width": "6",
+        "height": "10",
         "options": [
+            {
+                "label": "Code",
+                "key": "code",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Source",
+                "key": "source",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
             {
                 "label": "Gear Ratio",
                 "key": "gearratio",
@@ -3475,11 +3436,37 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "type": "number",
                 "required": false,
                 "rows": null
+            },
+            {
+                "label": "Weft",
+                "key": "weft",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Token",
+                "key": "token",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Chat ID",
+                "key": "chatid",
+                "type": "text",
+                "required": false,
+                "rows": null
             }
         ],
         "formValue": {
+            "code": "",
+            "source": "",
             "gearratio": "",
-            "circumferance": ""
+            "circumferance": "",
+            "weft": "",
+            "token": "",
+            "chatid": ""
         },
         "payload": "",
         "submit": "submit",
@@ -3504,7 +3491,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "9f979da7e8a5400d",
         "name": "function 18",
-        "func": "msg.payload = `{\n    \"code\": \"${flow.get(\"code\")}\",\n    \"source\": \"${flow.get(\"source\")}\",\n    \"circumferance\": ${msg.payload.circumferance},\n    \"gearratio\": ${msg.payload.gearratio}\n}\n`\nreturn msg;",
+        "func": "msg.payload = `{\n    \"code\": \"${msg.payload.code}\",\n    \"source\": \"${msg.payload.source}\",\n    \"circumferance\": ${msg.payload.circumferance},\n    \"gearratio\": ${msg.payload.gearratio},\n    \"weft\": ${msg.payload.weft},\n    \"botToken\": \"${msg.payload.token}\",\n    \"chatId\": \"${msg.payload.chatid}\",\n    \"stateCalibrate\": ${global.get(\"config.constant.statecalibrate\") ?? 0}\n}\n`\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3693,123 +3680,18 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 170,
-        "y": 380,
+        "x": 150,
+        "y": 560,
         "wires": [
             [
-                "2155c9bb280942c8",
-                "8d08ccb4c02573cb",
                 "1e2c80a1110b05a5",
                 "79cf397d7f04eec1",
                 "76063224b269c468",
                 "7d256f0f0faefbc2",
-                "6658d815c8420cf3",
-                "4e1639b8fbf865ce"
+                "4e1639b8fbf865ce",
+                "542c86972aa9deda",
+                "77f6888fb7a61c28"
             ]
-        ]
-    },
-    {
-        "id": "2155c9bb280942c8",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "SELECT Local",
-        "func": "const db = context.get(\"db\");\ntry{\n        const item = db.prepare(`\n        SELECT id, create_at, sent, total_meter, total_work, speed_main, speed_take \n        FROM telemetry_local\n        ORDER BY create_at DESC\n        LIMIT 10;\n        `).all();\n        msg.payload = item;\n        return msg;\n    } catch (err) {\n        node.error(err);\n    }",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// const Database = require('better-sqlite3');\ncontext.set(\"db\", new Database('/home/orangepi/telemetry/sql/telemetry_factory.db'));",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst db = context.get(\"db\");\nif (db) db.close();",
-        "libs": [
-            {
-                "var": "Database",
-                "module": "better-sqlite3"
-            }
-        ],
-        "x": 380,
-        "y": 680,
-        "wires": [
-            [
-                "a3a72c1933d9018f"
-            ]
-        ],
-        "icon": "font-awesome/fa-archive"
-    },
-    {
-        "id": "8d08ccb4c02573cb",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "SELECT Cloud",
-        "func": "const db = context.get(\"db\");\ntry{\n        const item = db.prepare(`\n        SELECT id, create_at, sent, total_meter, total_work, speed_main, speed_take\n        FROM telemetry_cloud\n        ORDER BY create_at DESC\n        LIMIT 10;\n        `).all();\n        msg.payload = item;\n        return msg;\n    } catch (err) {\n        node.error(err);\n    }",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// const Database = require('better-sqlite3');\ncontext.set(\"db\", new Database('/home/orangepi/telemetry/sql/telemetry_factory.db'));",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst db = context.get(\"db\");\nif (db) db.close();",
-        "libs": [
-            {
-                "var": "Database",
-                "module": "better-sqlite3"
-            }
-        ],
-        "x": 380,
-        "y": 720,
-        "wires": [
-            [
-                "39b7d84689427618"
-            ]
-        ],
-        "icon": "font-awesome/fa-archive"
-    },
-    {
-        "id": "a3a72c1933d9018f",
-        "type": "ui-table",
-        "z": "9f979da7e8a5400d",
-        "group": "952156841f214b55",
-        "name": "Local Logging 10",
-        "label": "Local Logging",
-        "order": 8,
-        "width": "6",
-        "height": "0",
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "showSearch": true,
-        "deselect": true,
-        "selectionType": "none",
-        "columns": [],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "x": 610,
-        "y": 680,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "39b7d84689427618",
-        "type": "ui-table",
-        "z": "9f979da7e8a5400d",
-        "group": "952156841f214b55",
-        "name": "Cloud Logging 10",
-        "label": "Cloud Logging",
-        "order": 7,
-        "width": "6",
-        "height": "0",
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "showSearch": true,
-        "deselect": true,
-        "selectionType": "none",
-        "columns": [],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "x": 610,
-        "y": 720,
-        "wires": [
-            []
         ]
     },
     {
@@ -3829,8 +3711,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "module": "better-sqlite3"
             }
         ],
-        "x": 380,
-        "y": 820,
+        "x": 180,
+        "y": 620,
         "wires": [
             [
                 "8ffe8c6c00ea7e45"
@@ -3855,8 +3737,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "module": "better-sqlite3"
             }
         ],
-        "x": 380,
-        "y": 860,
+        "x": 180,
+        "y": 660,
         "wires": [
             [
                 "f6f48727fc9485fd"
@@ -3884,8 +3766,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 610,
-        "y": 820,
+        "x": 390,
+        "y": 660,
         "wires": [
             []
         ]
@@ -3910,8 +3792,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 610,
-        "y": 860,
+        "x": 390,
+        "y": 700,
         "wires": [
             []
         ]
@@ -3933,8 +3815,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "module": "better-sqlite3"
             }
         ],
-        "x": 380,
-        "y": 900,
+        "x": 180,
+        "y": 700,
         "wires": [
             [
                 "c56ab00c50e24a30"
@@ -3962,8 +3844,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 610,
-        "y": 900,
+        "x": 390,
+        "y": 740,
         "wires": [
             []
         ]
@@ -3985,8 +3867,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "module": "better-sqlite3"
             }
         ],
-        "x": 380,
-        "y": 940,
+        "x": 180,
+        "y": 740,
         "wires": [
             [
                 "631c0742e2c6407e"
@@ -4014,60 +3896,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 620,
-        "y": 940,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "6658d815c8420cf3",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "SELECT Cloud",
-        "func": "const db = context.get(\"db\");\ntry{\n        const item = db.prepare(`\n        SELECT * \n        FROM telemetry_meter\n        ORDER BY create_at DESC\n        LIMIT 1;\n        `).all();\n        msg.payload = item;\n        return msg;\n    } catch (err) {\n        node.error(err);\n    }",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// const Database = require('better-sqlite3');\ncontext.set(\"db\", new Database('/home/orangepi/telemetry/sql/telemetry_factory.db'));",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst db = context.get(\"db\");\nif (db) db.close();",
-        "libs": [
-            {
-                "var": "Database",
-                "module": "better-sqlite3"
-            }
-        ],
-        "x": 380,
-        "y": 760,
-        "wires": [
-            [
-                "bef98c531b9ceeee"
-            ]
-        ],
-        "icon": "font-awesome/fa-archive"
-    },
-    {
-        "id": "bef98c531b9ceeee",
-        "type": "ui-table",
-        "z": "9f979da7e8a5400d",
-        "group": "952156841f214b55",
-        "name": "Local Meter Logging 10",
-        "label": "Local Meter Logging",
-        "order": 9,
-        "width": "0",
-        "height": "0",
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "showSearch": false,
-        "deselect": true,
-        "selectionType": "none",
-        "columns": [],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "x": 630,
-        "y": 760,
+        "x": 400,
+        "y": 780,
         "wires": [
             []
         ]
@@ -4278,8 +4108,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
-        "y": 980,
+        "x": 170,
+        "y": 780,
         "wires": [
             []
         ]
@@ -4353,8 +4183,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "1d10db1bd508ca47",
                 "11ddf91ed25bb94c",
                 "fdc0f3a9a06182ed",
-                "4ebd6dc4e82fcb61",
-                "75d4beced3b5a924"
+                "4ebd6dc4e82fcb61"
             ]
         ],
         "icon": "font-awesome/fa-archive"
@@ -4366,7 +4195,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "group": "b35f5291aaa0dfd1",
         "name": "",
         "label": "",
-        "order": 21,
+        "order": 20,
         "width": "12",
         "height": "1",
         "maxrows": 0,
@@ -4387,106 +4216,13 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         ]
     },
     {
-        "id": "17063c4f0b576e79",
-        "type": "ui-table",
-        "z": "9f979da7e8a5400d",
-        "group": "302b8f6333bd9787",
-        "name": "",
-        "label": "",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "maxrows": 0,
-        "passthru": false,
-        "autocols": true,
-        "showSearch": true,
-        "deselect": true,
-        "selectionType": "none",
-        "columns": [],
-        "mobileBreakpoint": "sm",
-        "mobileBreakpointType": "defaults",
-        "action": "replace",
-        "className": "",
-        "x": 830,
-        "y": 240,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c528eea30cab4bfc",
-        "type": "ui-form",
-        "z": "9f979da7e8a5400d",
-        "name": "",
-        "group": "302b8f6333bd9787",
-        "label": "",
-        "order": 1,
-        "width": "2",
-        "height": "3",
-        "options": [
-            {
-                "label": "date",
-                "key": "date",
-                "type": "date",
-                "required": true,
-                "rows": null
-            }
-        ],
-        "formValue": {
-            "date": ""
-        },
-        "payload": "",
-        "submit": "submit",
-        "cancel": "",
-        "resetOnSubmit": true,
-        "topic": "topic",
-        "topicType": "msg",
-        "splitLayout": "",
-        "className": "",
-        "passthru": false,
-        "dropdownOptions": [],
-        "x": 530,
-        "y": 240,
-        "wires": [
-            [
-                "1622b9ed9db193ba"
-            ]
-        ]
-    },
-    {
-        "id": "1622b9ed9db193ba",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "INSERT",
-        "func": "const db = context.get(\"db\");\nlet startDate = new Date(msg.payload.date);\nlet stopDate = new Date(msg.payload.date);\nconst h = Number(global.get(\"config.datetime.hour\"));\nconst result = [];\nconst cen = (global.get(\"config.state.circumferance\") / global.get(\"config.state.gearratio\"));\nconst centimenter = cen / 100;\nnode.warn(centimenter);\nif (h >= 8) {\n        // วันนี้ 08:00 → พรุ่งนี้ 08:00\n        stopDate.setDate(stopDate.getDate() + 1);\n} else {\n        // เมื่อวาน 08:00 → วันนี้ 08:00\n        startDate.setDate(startDate.getDate() - 1);\n}\n\nlet start = `${startDate.getFullYear()}-${(startDate.getMonth()+1).toString().padStart(2,'0')}-${startDate.getDate().toString().padStart(2,'0')} 08:00:00`;\nlet stop = `${stopDate.getFullYear()}-${(stopDate.getMonth()+1).toString().padStart(2,'0')}-${stopDate.getDate().toString().padStart(2,'0')} 08:00:00`;\n\ntry {\n        const items = db.prepare(`\n                SELECT * \n                FROM telemetry_log tl\n                WHERE tl.create_at >= ?\n                AND tl.create_at < ?\n                ORDER BY tl.create_at DESC;\n        `).all(start, stop);\n        items.forEach((element,index) => {\n                element.spdp = Math.trunc(parseFloat(element.ppm * centimenter) * 100 ) / 100;\n                result.push(element)\n        });\n    msg.payload = items;\n    return msg;\n} catch (err) {\n    node.error(err);\n}\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// const Database = require('better-sqlite3');\ncontext.set(\"db\", new Database('/home/orangepi/telemetry/sql/telemetry_factory.db'));",
-        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst db = context.get(\"db\");\nif (db) db.close();",
-        "libs": [
-            {
-                "var": "Database",
-                "module": "better-sqlite3"
-            }
-        ],
-        "x": 680,
-        "y": 240,
-        "wires": [
-            [
-                "17063c4f0b576e79"
-            ]
-        ],
-        "icon": "font-awesome/fa-archive"
-    },
-    {
         "id": "2b6181cdb6228a98",
         "type": "ui-table",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
         "name": "Fomula Pulse Take Up Speed",
         "label": "Fomula Pulse Take Up Speed",
-        "order": 9,
+        "order": 8,
         "width": "0",
         "height": "0",
         "maxrows": 0,
@@ -4499,8 +4235,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 730,
-        "y": 340,
+        "x": 1030,
+        "y": 640,
         "wires": [
             []
         ]
@@ -4517,8 +4253,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 340,
+        "x": 810,
+        "y": 640,
         "wires": [
             [
                 "2b6181cdb6228a98",
@@ -4534,7 +4270,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "group": "b35f5291aaa0dfd1",
         "name": "Fomula: พัลส์ / ความถี่(หน้าผ้าจริง) * 2.54 / 100 ",
         "label": "Fomula: พัลส์ / ความถี่(หน้าผ้าจริง) * 2.54 / 100 ",
-        "order": 12,
+        "order": 11,
         "width": "0",
         "height": "0",
         "maxrows": 0,
@@ -4547,8 +4283,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 770,
-        "y": 400,
+        "x": 1070,
+        "y": 700,
         "wires": [
             []
         ]
@@ -4558,15 +4294,15 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "9f979da7e8a5400d",
         "name": "function 34",
-        "func": "const density = flow.get(\"true_den\") ?? 0;\nconst obj = {};\nconst position = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nvar a = 0, b = 0;\nposition.forEach((element, index) => {\n    const h = String(element).padStart(2, 0);\n    const key = `${h}:00`;\n    obj[key] = 0\n});\n\nconst items = msg.payload;\n\nitems.forEach(function(element) {\n    const h = element.create_at.substring(11, 13);\n    const key = `${h}:00`;\n    const fomula = ((element.pulse_main_spd / density ) * 2.54) / 100;\n    const decimal = Math.trunc(fomula * 100) / 100;\n    if (h >= 8 && h <= 19) {\n        a += decimal\n    } else {\n        b += decimal\n    }\n    obj[key] = decimal;\n});\n\nmsg.a = Math.trunc(a * 100) / 100;\nmsg.b = Math.trunc(b * 100) / 100;\nmsg.payload = obj;\nreturn msg;",
+        "func": "const density = global.get(\"config.constant.products.weft\") ?? 0;\nconst obj = {};\nconst position = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nvar a = 0, b = 0;\nposition.forEach((element, index) => {\n    const h = String(element).padStart(2, 0);\n    const key = `${h}:00`;\n    obj[key] = 0\n});\n\nconst items = msg.payload;\n\nitems.forEach(function(element) {\n    const h = element.create_at.substring(11, 13);\n    const key = `${h}:00`;\n    const fomula = ((element.pulse_main_spd / density ) * 2.54) / 100;\n    const decimal = Math.trunc(fomula * 100) / 100;\n    if (h >= 8 && h <= 19) {\n        a += decimal\n    } else {\n        b += decimal\n    }\n    obj[key] = decimal;\n});\n\nmsg.a = Math.trunc(a * 100) / 100;\nmsg.b = Math.trunc(b * 100) / 100;\nmsg.payload = obj;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 400,
+        "x": 810,
+        "y": 700,
         "wires": [
             [
                 "e42bb3149f25b9b5",
@@ -4576,61 +4312,13 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         ]
     },
     {
-        "id": "5416c9b1e31a7cd5",
-        "type": "inject",
-        "z": "9f979da7e8a5400d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "6",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 115,
-        "y": 420,
-        "wires": [
-            [
-                "085d06ca76e7ac88"
-            ]
-        ],
-        "l": false
-    },
-    {
-        "id": "085d06ca76e7ac88",
-        "type": "function",
-        "z": "9f979da7e8a5400d",
-        "name": "values fomula",
-        "func": "const true_den = global.get(\"config.state.products.weft\");\nflow.set(\"true_den\", true_den);\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 260,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "5aa71eb0748c4aba",
         "type": "ui-table",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
         "name": "พัลส์สปีดใต้ฐาน",
         "label": "พัลส์สปีดใต้ฐาน",
-        "order": 15,
+        "order": 14,
         "width": "0",
         "height": "0",
         "maxrows": 0,
@@ -4643,8 +4331,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 680,
-        "y": 460,
+        "x": 980,
+        "y": 760,
         "wires": [
             []
         ]
@@ -4661,8 +4349,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 460,
+        "x": 810,
+        "y": 760,
         "wires": [
             [
                 "5aa71eb0748c4aba",
@@ -4678,7 +4366,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "group": "b35f5291aaa0dfd1",
         "name": "พัลส์สปีดเทคอัพ",
         "label": "พัลส์สปีดเทคอัพ",
-        "order": 18,
+        "order": 17,
         "width": "0",
         "height": "0",
         "maxrows": 0,
@@ -4691,8 +4379,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "mobileBreakpoint": "sm",
         "mobileBreakpointType": "defaults",
         "action": "replace",
-        "x": 680,
-        "y": 520,
+        "x": 980,
+        "y": 820,
         "wires": [
             []
         ]
@@ -4709,8 +4397,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 520,
+        "x": 810,
+        "y": 820,
         "wires": [
             [
                 "5a0d9c5c1af6c3a0",
@@ -4724,7 +4412,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 10,
+        "order": 9,
         "width": "2",
         "height": 0,
         "name": "Fomula Pulse Take Up Speed A",
@@ -4739,8 +4427,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.a",
         "valueType": "msg",
-        "x": 1090,
-        "y": 400,
+        "x": 1390,
+        "y": 700,
         "wires": []
     },
     {
@@ -4748,7 +4436,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 11,
+        "order": 10,
         "width": "2",
         "height": 0,
         "name": "Fomula Pulse Take Up Speed B",
@@ -4763,8 +4451,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.b",
         "valueType": "msg",
-        "x": 1090,
-        "y": 360,
+        "x": 1390,
+        "y": 660,
         "wires": []
     },
     {
@@ -4772,7 +4460,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 13,
+        "order": 12,
         "width": "2",
         "height": 0,
         "name": "Fomula: พัลส์ / ความถี่(หน้าผ้าจริง) * 2.54 / 100 A",
@@ -4787,8 +4475,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.a",
         "valueType": "msg",
-        "x": 1140,
-        "y": 500,
+        "x": 1440,
+        "y": 800,
         "wires": []
     },
     {
@@ -4796,7 +4484,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 14,
+        "order": 13,
         "width": "2",
         "height": 0,
         "name": "Fomula: พัลส์ / ความถี่(หน้าผ้าจริง) * 2.54 / 100 B",
@@ -4811,8 +4499,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.b",
         "valueType": "msg",
-        "x": 1140,
-        "y": 460,
+        "x": 1440,
+        "y": 760,
         "wires": []
     },
     {
@@ -4820,7 +4508,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 16,
+        "order": 15,
         "width": "2",
         "height": 0,
         "name": "พัลส์สปีดใต้ฐาน A",
@@ -4835,8 +4523,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.a",
         "valueType": "msg",
-        "x": 1050,
-        "y": 600,
+        "x": 1350,
+        "y": 900,
         "wires": []
     },
     {
@@ -4844,7 +4532,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 17,
+        "order": 16,
         "width": "2",
         "height": 0,
         "name": "พัลส์สปีดใต้ฐาน B",
@@ -4859,8 +4547,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.b",
         "valueType": "msg",
-        "x": 1050,
-        "y": 560,
+        "x": 1350,
+        "y": 860,
         "wires": []
     },
     {
@@ -4868,7 +4556,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 19,
+        "order": 18,
         "width": "2",
         "height": 0,
         "name": "พัลส์สปีดเทคอัพ A",
@@ -4883,8 +4571,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.a",
         "valueType": "msg",
-        "x": 1050,
-        "y": 700,
+        "x": 1350,
+        "y": 1000,
         "wires": []
     },
     {
@@ -4892,7 +4580,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
         "group": "b35f5291aaa0dfd1",
-        "order": 20,
+        "order": 19,
         "width": "2",
         "height": 0,
         "name": "พัลส์สปีดเทคอัพ B",
@@ -4907,22 +4595,22 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "msg.b",
         "valueType": "msg",
-        "x": 1050,
-        "y": 660,
+        "x": 1350,
+        "y": 960,
         "wires": []
     },
     {
         "id": "5a13063a5ab36711",
         "type": "ui-text",
         "z": "9f979da7e8a5400d",
-        "group": "b35f5291aaa0dfd1",
-        "order": 8,
-        "width": "0",
+        "group": "952156841f214b55",
+        "order": 6,
+        "width": "5",
         "height": 0,
         "name": "เทียบ main | takeup",
         "label": "",
         "format": "{{msg.payload}}",
-        "layout": "row-left",
+        "layout": "row-center",
         "style": false,
         "font": "",
         "fontSize": 16,
@@ -4931,8 +4619,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "className": "",
         "value": "compare",
         "valueType": "msg",
-        "x": 690,
-        "y": 600,
+        "x": 630,
+        "y": 440,
         "wires": []
     },
     {
@@ -4940,18 +4628,182 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "9f979da7e8a5400d",
         "name": "function 35",
-        "func": "const density = flow.get(\"true_den\") ?? 0;\nvar takeupA = 0, takeupB = 0;\nvar mainA = 0, mainB = 0;\nconst position = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nconst positionA = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];\nconst positionB = [20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nconst items = msg.payload;\n\nitems.forEach(function (element) {\n    const h = element.create_at.substring(11, 13);\n    const fomula1 = (element.pulse * 1.43) / 100;\n    const decimal1 = Math.trunc(fomula1 * 100) / 100;\n    const fomula2 = ((element.pulse_main_spd / density) * 2.54) / 100;\n    const decimal2 = Math.trunc(fomula2 * 100) / 100;\n    if (h >= 8 && h <= 19) {\n        takeupA += decimal1\n        mainA += decimal2\n    } else {\n        takeupB += decimal1\n        mainB += decimal2\n    }\n});\n\nconst meter_compare_A = Math.trunc((takeupA - mainA) * 100) / 100;\nconst meter_compare_B = Math.trunc((takeupB - mainB) * 100) / 100;\nconst percentA = ((takeupA - mainA) / takeupA) * 100\nconst percent_compare_A = Math.trunc((percentA) * 100) / 100;\nconst percentB = ((takeupB - mainB) / takeupB) * 100\nconst percent_compare_B = Math.trunc((percentB) * 100) / 100;\n\nmsg.compare = `ส่วนต่างA: ${meter_compare_A} เมตร >> ${percent_compare_A}% | ส่วนต่างB: ${meter_compare_B} เมตร >> ${percent_compare_B}%`;\nreturn msg;",
+        "func": "const density = global.get(\"config.constant.products.weft\") ?? 0;\nvar takeupA = 0, takeupB = 0;\nvar mainA = 0, mainB = 0;\nconst state = global.get(\"config.constant.statecalibrate\");\nconst position = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nconst positionA = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];\nconst positionB = [20, 21, 22, 23, 0, 1, 2, 3, 4, 5, 6, 7];\nconst items = msg.payload;\nif(state){\nitems.forEach(function (element) {\n    const h = element.create_at.substring(11, 13);\n    const fomula1 = (element.pulse * 1.43) / 100;\n    const decimal1 = Math.trunc(fomula1 * 100) / 100;\n    const fomula2 = ((element.pulse_main_spd / density) * 2.54) / 100;\n    const decimal2 = Math.trunc(fomula2 * 100) / 100;\n    if (h >= 8 && h <= 19) {\n        takeupA += decimal1\n        mainA += decimal2\n    } else {\n        takeupB += decimal1\n        mainB += decimal2\n    }\n});\n\nconst meter_compare_A = Math.trunc((takeupA - mainA) * 100) / 100;\nconst meter_compare_B = Math.trunc((takeupB - mainB) * 100) / 100;\nconst percentA = ((takeupA - mainA) / takeupA) * 100\nconst percent_compare_A = Math.trunc((percentA) * 100) / 100;\nconst percentB = ((takeupB - mainB) / takeupB) * 100\nconst percent_compare_B = Math.trunc((percentB) * 100) / 100;\n\nmsg.compare = `ส่วนต่างA: ${meter_compare_A} เมตร >> ${percent_compare_A}% | ส่วนต่างB: ${meter_compare_B} เมตร >> ${percent_compare_B}%`;\n}else{\nmsg.compare = `Calibrate Mode : OFF`\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 580,
+        "x": 450,
+        "y": 440,
         "wires": [
             [
                 "5a13063a5ab36711"
+            ]
+        ]
+    },
+    {
+        "id": "ba7fec80df636453",
+        "type": "ui-button-group",
+        "z": "9f979da7e8a5400d",
+        "name": "",
+        "group": "952156841f214b55",
+        "order": 4,
+        "width": "2",
+        "height": 1,
+        "label": "Calibrate Mode:",
+        "className": "",
+        "rounded": true,
+        "useThemeColors": false,
+        "passthru": false,
+        "options": [
+            {
+                "label": "ON",
+                "icon": "",
+                "value": "1",
+                "valueType": "num",
+                "color": "#009933"
+            },
+            {
+                "label": "OFF",
+                "icon": "",
+                "value": "0",
+                "valueType": "num",
+                "color": "#ff3333"
+            }
+        ],
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 880,
+        "y": 100,
+        "wires": [
+            [
+                "6f7d7a70aa567b4f"
+            ]
+        ]
+    },
+    {
+        "id": "6f7d7a70aa567b4f",
+        "type": "function",
+        "z": "9f979da7e8a5400d",
+        "name": "function 37",
+        "func": "global.set(\"config.constant.statecalibrate\", msg.payload)\nmsg.payload = `{\n    \"code\": \"${global.get(\"config.constant.code\")}\",\n    \"source\": \"${global.get(\"config.constant.source\")}\",\n    \"circumferance\": ${global.get(\"config.constant.circumferance\")},\n    \"gearratio\": ${global.get(\"config.constant.gearratio\")},\n    \"weft\": ${global.get(\"config.constant.products.weft\")},\n    \"botToken\": \"${global.get(\"config.constant.telegram.token\")}\",\n    \"chatId\": \"${global.get(\"config.constant.telegram.chatid\")}\",\n    \"stateCalibrate\": ${msg.payload}\n}\n`\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1050,
+        "y": 100,
+        "wires": [
+            [
+                "9cb047ed2c598281"
+            ]
+        ]
+    },
+    {
+        "id": "542c86972aa9deda",
+        "type": "function",
+        "z": "9f979da7e8a5400d",
+        "name": "INSERT",
+        "func": "const db = context.get(\"db\");\nconst state = global.get(\"config.constant.statecalibrate\");\nlet startDate = new Date();\nlet stopDate = new Date();\nconst h = Number(global.get(\"config.datetime.hour\"));\nconst result = [];\n\nif (h >= 8) {\n        // วันนี้ 08:00 → พรุ่งนี้ 08:00\n        stopDate.setDate(stopDate.getDate() + 1);\n} else {\n        // เมื่อวาน 08:00 → วันนี้ 08:00\n        startDate.setDate(startDate.getDate() - 1);\n}\n\nlet start = `${startDate.getFullYear()}-${(startDate.getMonth()+1).toString().padStart(2,'0')}-${startDate.getDate().toString().padStart(2,'0')} 08:00:00`;\nlet stop = `${stopDate.getFullYear()}-${(stopDate.getMonth()+1).toString().padStart(2,'0')}-${stopDate.getDate().toString().padStart(2,'0')} 08:00:00`;\n\nif(state){\ntry {\n    const items = db.prepare(`\n        SELECT tl.*\n        FROM telemetry_log tl\n        INNER JOIN (\n            SELECT MAX(create_at) as max_create_at\n            FROM telemetry_log\n            WHERE create_at >= ? AND create_at < ?\n            GROUP BY strftime('%Y-%m-%d %H', create_at)\n        ) latest \n        ON tl.create_at = latest.max_create_at\n        ORDER BY tl.create_at DESC;\n    `).all(start, stop);\n    msg.m_fomula = items.reduce((sum, items) => sum + +items.m_fomula, 0);\n    msg.payload = items;\n    return msg;\n} catch (err) {\n    node.error(err);\n}\n}else{\n        return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n// const Database = require('better-sqlite3');\ncontext.set(\"db\", new Database('/home/orangepi/telemetry/sql/telemetry_factory.db'));",
+        "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconst db = context.get(\"db\");\nif (db) db.close();",
+        "libs": [
+            {
+                "var": "Database",
+                "module": "better-sqlite3"
+            }
+        ],
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "75d4beced3b5a924"
+            ]
+        ],
+        "icon": "font-awesome/fa-archive"
+    },
+    {
+        "id": "f4a0927a449c81f5",
+        "type": "ui-event",
+        "z": "9f979da7e8a5400d",
+        "ui": "d6f3a7fd07525d85",
+        "name": "",
+        "x": 530,
+        "y": 60,
+        "wires": [
+            [
+                "d031102aa4caba81"
+            ]
+        ]
+    },
+    {
+        "id": "d031102aa4caba81",
+        "type": "function",
+        "z": "9f979da7e8a5400d",
+        "name": "function 17",
+        "func": "msg.payload  = global.get(\"config.constant.statecalibrate\")\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "ba7fec80df636453"
+            ]
+        ]
+    },
+    {
+        "id": "9414810287079062",
+        "type": "ui-text",
+        "z": "9f979da7e8a5400d",
+        "group": "952156841f214b55",
+        "order": 1,
+        "width": "3",
+        "height": 0,
+        "name": "time",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 510,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "77f6888fb7a61c28",
+        "type": "function",
+        "z": "9f979da7e8a5400d",
+        "name": "function 38",
+        "func": "msg.payload = global.get(\"config.datetime.time\");\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 560,
+        "wires": [
+            [
+                "9414810287079062"
             ]
         ]
     },
@@ -5590,7 +5442,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": "5",
+        "onceDelay": "3",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -5627,7 +5479,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "d20bbe576d625bfc",
         "name": "url",
-        "func": "const item = JSON.parse(msg.payload);\nconst machineCode = item.code;\nglobal.set(\"config.state.source\", item.source);\nglobal.set(\"config.state.code\", item.code);\nglobal.set(\"config.state.gearratio\", item.gearratio);\nglobal.set(\"config.state.circumferance\", item.circumferance);\nglobal.set(\"config.state.telegram.token\", item.botToken);\nglobal.set(\"config.state.telegram.chatid\", item.chatId);\n\nmsg.url = `http://192.168.0.9:1880/api/loom-product-warp-density?machineCode=${machineCode}`\nmsg.method = `GET`\nreturn msg;",
+        "func": "const item = JSON.parse(msg.payload);\n// const machineCode = item.code;\nglobal.set(\"config.constant.source\", item.source ?? 1);\nglobal.set(\"config.constant.code\", item.code);\nglobal.set(\"config.constant.gearratio\", item.gearratio ?? 0);\nglobal.set(\"config.constant.circumferance\", item.circumferance ?? 0);\nglobal.set(\"config.constant.telegram.token\", item.botToken ?? '-');\nglobal.set(\"config.constant.telegram.chatid\", item.chatId ?? '-');\nglobal.set(\"config.constant.products.weft\", item.weft ?? 0);\nglobal.set(\"config.constant.statecalibrate\", item.stateCalibrate ?? false);\n// msg.url = `http://192.168.0.9:1880/api/loom-product-warp-density?machineCode=${machineCode}`\n// msg.method = `GET`\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5638,99 +5490,26 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "y": 80,
         "wires": [
             [
-                "f6fdfb5acf87bb7b"
+                "fa934ef394c1937f"
             ]
         ]
     },
     {
-        "id": "f6fdfb5acf87bb7b",
-        "type": "http request",
-        "z": "d20bbe576d625bfc",
-        "name": "",
-        "method": "use",
-        "ret": "txt",
-        "paytoqs": "body",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 670,
-        "y": 80,
-        "wires": [
-            [
-                "454021c4bb24481c"
-            ]
-        ]
-    },
-    {
-        "id": "454021c4bb24481c",
-        "type": "function",
-        "z": "d20bbe576d625bfc",
-        "name": "set response",
-        "func": "const payload = JSON.parse(msg.payload);\nglobal.set(\"config.state.products.warp\", +payload.warp ?? 0);\nglobal.set(\"config.state.products.weft\", +payload.weft ?? 0);\nglobal.set(\"config.state.products.type\", payload.type ?? 0);\nnode.warn(payload);\nmsg.payload = {\n    'fill': 'blue',\n    'shape': 'dot',\n    'text': global.get(\"config.datetime.time\")\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 850,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "2e40a7b28fd6cfb5",
-        "type": "inject",
-        "z": "d20bbe576d625bfc",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "10",
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 210,
-        "y": 200,
-        "wires": [
-            [
-                "881df6df1130a9c6"
-            ]
-        ]
-    },
-    {
-        "id": "881df6df1130a9c6",
+        "id": "fa934ef394c1937f",
         "type": "function",
         "z": "d20bbe576d625bfc",
         "name": "function 36",
-        "func": "if(global.get(\"config.state.products.weft\") === undefined){\nreturn msg;\n}",
+        "func": "const payload = JSON.parse(msg.payload);\n\nnode.warn(payload);\nmsg.payload = {\n    'fill': 'blue',\n    'shape': 'dot',\n    'text': global.get(\"config.datetime.time\")\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 380,
-        "y": 200,
+        "x": 520,
+        "y": 160,
         "wires": [
-            [
-                "25bb6eb3a835fa98"
-            ]
+            []
         ]
     },
     {
@@ -5738,7 +5517,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "eb32b943af0bf73c",
         "name": "alarm",
-        "func": "const meterTakeup = msg.meterTakeup;\nconst meterFomula = msg.meterFomula;\nconst hour = Number(global.get(\"config.datetime.hour\"));\nlet stateAlert = flow.get(\"stateAlert\") ?? \"-\"; // state alarm in hour\nif ((\n    (\n        (meterTakeup == undefined) || (meterTakeup == Infinity) ||\n        (meterFomula == undefined) || (meterFomula == Infinity)\n    )\n    ||\n    (\n        (\n            ((meterTakeup - meterFomula) >= 2.5) || ((meterTakeup - meterFomula) <= -2.5)\n        )\n    )) && stateAlert != hour) {\n    const botToken = global.get(\"config.state.telegram.token\") ?? \"\";\n    const chatId = global.get(\"config.state.telegram.chatid\") ?? \"\";\n    const deviceCode = global.get(\"config.state.code\") ?? global.get(\"config.state.ip\");\n    flow.set(\"stateAlert\", hour);\n    msg.url = `https://api.telegram.org/bot${botToken}/sendMessage`;\n    msg.method = \"POST\";\n    msg.payload = {\n        chat_id: chatId,\n        text: `${deviceCode}: !ข้อมูลเกิดความผิดพลาดบางอย่าง >> [takeup, main]: [ ${meterTakeup}, ${meterFomula} ]`\n    };\n    node.status({ fill: \"yellow\", shape: \"dot\", text: `Alert: ${global.get(\"config.datetime.time\")}` });\n    return msg;\n}",
+        "func": "const meterTakeup = global.get(\"meter_take\");\nconst meterFomula = global.get(\"meter_main\");\nconst hour = Number(global.get(\"config.datetime.hour\"));\nconst state = global.get(\"config.constant.calibrate.state\");\nlet stateAlert = flow.get(\"stateAlert\") ?? \"-\"; // state alarm in hour\nif ((((meterTakeup - meterFomula) >= 2.5) || ((meterTakeup - meterFomula) <= -2.5)) && stateAlert != hour && state) {\n    const botToken = global.get(\"config.constant.telegram.token\") ?? \"\";\n    const chatId = global.get(\"config.constant.telegram.chatid\") ?? \"\";\n    const deviceCode = global.get(\"config.state.code\") ?? global.get(\"config.state.ip\");\n    flow.set(\"stateAlert\", hour);\n    msg.url = `https://api.telegram.org/bot${botToken}/sendMessage`;\n    msg.method = \"POST\";\n    msg.payload = {\n        chat_id: chatId,\n        text: `${deviceCode}: !ข้อมูลเกิดความผิดพลาดบางอย่าง >> [takeup, main]: [ ${meterTakeup}, ${meterFomula} ]`\n    };\n    node.status({ fill: \"yellow\", shape: \"dot\", text: `Alert: ${global.get(\"config.datetime.time\")}` });\n    return msg;\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6006,7 +5785,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "z": "777823ab3e1fee97",
         "g": "6be6c492a2953951",
         "name": "parse()",
-        "func": "const p = msg.payload;\nconst msp = p[0];\nminMaxGlobalset('values.maintake', 'main', msp);\nconst tsp = Number(p[1] / 100);\nminMaxGlobalset('values.maintake', 'take', tsp);\nglobal.set(\"config.state.plc.nf\", p[6]); // not found\nglobal.set(\"config.state.plc.dou\", p[7]); // double\nglobal.set(\"config.state.plc.m_fomula\", p[13] / 100);\nconst m = p[2] / 100;\nconst mF = global.get(\"config.state.plc.pulse_main_spd\");\nmsg.meterTakeup = m;\nmsg.meterFomula = mF;\n\nconst hour = global.get('config.datetime.hour');\n// const mArr = global.get('values.meter');\n//     mArr.splice(Number(hour), 1, m);\nconst wArr = global.get('values.working');\nconst w = p[3];\nconst wShow = showTime(w);\nconst pulse_gear = shiftBit(p[4], p[5]);\nwArr.splice(Number(hour), 1, w);\nglobal.set(\"config.state.plc.pulse\", pulse_gear);\nnode.status({ fill: \"blue\", shape: \"dot\", text: `| main: ${msp} take: ${tsp} main ${mF} meter:${m} working: ${wShow} pulse: ${pulse_gear}` });\nreturn msg;\n\nfunction minMaxGlobalset(type, group, input) {\n    global.set(`${type}.${group}.now`, input);\n    let input_min = global.get(`${type}.${group}.min`) || 0;\n    let input_max = global.get(`${type}.${group}.max`) || 0;\n\n    if (input > 0 && input < 6000) {\n        if (!input_min || input < input_min) {\n            input_min = input;\n            global.set(`${type}.${group}.min`, input_min);\n        }\n        if (!input_max || input > input_max) {\n            input_max = input;\n            global.set(`${type}.${group}.max`, input_max);\n        };\n    } else {\n        global.set(`${type}.${group}.now`, 0);\n    };\n};\n\nfunction shiftBit(l, h) {\n    return (h << 16) | l;\n}\n\nfunction showTime(sec) {\n    let hours = Math.floor(sec / 3600)\n    let minutes = Math.floor((sec % 3600) / 60)\n    let seconds = Math.floor((sec % 60) / 1)\n    return `${hours}:${minutes}:${seconds}`\n}\n\n",
+        "func": "const p = msg.payload;\nconst msp = p[0];\nminMaxGlobalset('values.maintake', 'main', msp);\nconst tsp = Number(p[1] / 100);\nminMaxGlobalset('values.maintake', 'take', tsp);\nglobal.set(\"config.state.plc.nf\", p[6]); // not found\nglobal.set(\"config.state.plc.dou\", p[7]); // double\nglobal.set(\"config.state.plc.m_fomula\", p[13] / 100);\nconst m = p[2] / 100;\nconst mF = global.get(\"config.state.plc.pulse_main_spd\");\nglobal.set(\"meter_take\", m);\n\nconst hour = global.get('config.datetime.hour');\n// const mArr = global.get('values.meter');\n//     mArr.splice(Number(hour), 1, m);\nconst wArr = global.get('values.working');\nconst w = p[3];\nconst wShow = showTime(w);\nconst pulse_gear = shiftBit(p[4], p[5]);\nwArr.splice(Number(hour), 1, w);\nglobal.set(\"config.state.plc.pulse\", pulse_gear);\nnode.status({ fill: \"blue\", shape: \"dot\", text: `| main: ${msp} take: ${tsp} main ${mF} meter:${m} working: ${wShow} pulse: ${pulse_gear}` });\nreturn msg;\n\nfunction minMaxGlobalset(type, group, input) {\n    global.set(`${type}.${group}.now`, input);\n    let input_min = global.get(`${type}.${group}.min`) || 0;\n    let input_max = global.get(`${type}.${group}.max`) || 0;\n\n    if (input > 0 && input < 6000) {\n        if (!input_min || input < input_min) {\n            input_min = input;\n            global.set(`${type}.${group}.min`, input_min);\n        }\n        if (!input_max || input > input_max) {\n            input_max = input;\n            global.set(`${type}.${group}.max`, input_max);\n        };\n    } else {\n        global.set(`${type}.${group}.now`, 0);\n    };\n};\n\nfunction shiftBit(l, h) {\n    return (h << 16) | l;\n}\n\nfunction showTime(sec) {\n    let hours = Math.floor(sec / 3600)\n    let minutes = Math.floor((sec % 3600) / 60)\n    let seconds = Math.floor((sec % 60) / 1)\n    return `${hours}:${minutes}:${seconds}`\n}\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6016,9 +5795,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "x": 500,
         "y": 200,
         "wires": [
-            [
-                "6926e8e25fd7b874"
-            ]
+            []
         ]
     },
     {
@@ -6043,7 +5820,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "y": 260,
         "wires": [
             [
-                "f2925150b152ddfd"
+                "f2925150b152ddfd",
+                "6926e8e25fd7b874"
             ]
         ],
         "l": false
@@ -6203,7 +5981,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
                 "module": "better-sqlite3"
             }
         ],
-        "x": 300,
+        "x": 220,
         "y": 520,
         "wires": [
             [
@@ -6220,7 +5998,11 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "name": "",
         "x": 140,
         "y": 180,
-        "wires": []
+        "wires": [
+            [
+                "eb4afad08553b36c"
+            ]
+        ]
     },
     {
         "id": "5f4722c77c0dc26f",
@@ -6236,7 +6018,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 405,
+        "x": 325,
         "y": 520,
         "wires": [],
         "icon": "node-red/db.svg",
@@ -6267,7 +6049,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "z": "777823ab3e1fee97",
         "g": "6be6c492a2953951",
         "name": "Write PLC reset",
-        "func": "global.set(\"config.datetime.timestamp\", msg.timestamp)\nconst hours = Number(global.get(\"config.datetime.hour\"));\nconst changehour = Number(global.get(\"config.state.changehour\"));\nconst nodestate = context.get(\"nodestate\");\nif(nodestate){\n    if (changehour != undefined && changehour != null) {\n        if (hours != changehour) {\n            msg.payload = { value: 1, 'fc': 6, 'unitid': 1, 'address': 181, 'quantity': 1 }\n            msg.modbus_read = false;\n            node.status({ fill: \"green\", shape: \"dot\", text: `${global.get(\"config.datetime.time\")}: Reset Valuse PLC`});\n            return msg;\n        } else {\n            msg.modbus_read = true;\n            return msg;\n        }\n    }\n}else{\n    msg.modbus_read = false;\n    const payload = [parsecircumferance(global.get(\"config.state.circumferance\")), global.get(\"config.state.gearratio\")];\n    // const payload = [0, 0];\n    msg.payload = { value: payload, 'fc': 16, 'unitid': 1, 'address': 10, 'quantity': 2 }\n    context.set(\"nodestate\", true);\n    node.status({fill:\"yellow\",shape:\"dot\",text: `${ global.get(\"config.datetime.time\") }: Config PLC success...`});\n    return msg;\n}\n\nfunction parsecircumferance(cir) {\n    return Number(cir * 10);\n}",
+        "func": "global.set(\"config.datetime.timestamp\", msg.timestamp)\nconst hours = Number(global.get(\"config.datetime.hour\"));\nconst changehour = Number(global.get(\"config.state.changehour\"));\nconst nodestate = context.get(\"nodestate\");\nif(nodestate){\n    if (changehour != undefined && changehour != null) {\n        if (hours != changehour) {\n            msg.payload = { value: 1, 'fc': 6, 'unitid': 1, 'address': 181, 'quantity': 1 }\n            msg.modbus_read = false;\n            node.status({ fill: \"green\", shape: \"dot\", text: `${global.get(\"config.datetime.time\")}: Reset Valuse PLC`});\n            return msg;\n        } else {\n            msg.modbus_read = true;\n            return msg;\n        }\n    }\n}else{\n    msg.modbus_read = false;\n    const payload = [parsecircumferance(global.get(\"config.constant.circumferance\")), global.get(\"config.constant.gearratio\")];\n    // const payload = [0, 0];\n    msg.payload = { value: payload, 'fc': 16, 'unitid': 1, 'address': 10, 'quantity': 2 }\n    context.set(\"nodestate\", true);\n    node.status({fill:\"yellow\",shape:\"dot\",text: `${ global.get(\"config.datetime.time\") }: Config PLC success...`});\n    return msg;\n}\n\nfunction parsecircumferance(cir) {\n    return Number(cir * 10);\n}",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6330,7 +6112,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "topic": "",
         "payload": "python3 /home/orangepi/telemetry/py/requests_local.py",
         "payloadType": "str",
-        "x": 541,
+        "x": 405,
         "y": 520,
         "wires": [
             [
@@ -6353,7 +6135,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "winHide": false,
         "oldrc": false,
         "name": "py",
-        "x": 626,
+        "x": 490,
         "y": 540,
         "wires": [
             [
@@ -6385,7 +6167,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "topic": "",
         "payload": "python3 /home/orangepi/telemetry/py/requests_cloud.py",
         "payloadType": "str",
-        "x": 541,
+        "x": 405,
         "y": 560,
         "wires": [
             [
@@ -6408,7 +6190,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 721,
+        "x": 585,
         "y": 520,
         "wires": [],
         "icon": "node-red/comment.svg",
@@ -6454,7 +6236,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "keepMsgProperties": false,
         "delayOnStart": false,
         "startDelayTime": "",
-        "x": 1310,
+        "x": 1010,
         "y": 280,
         "wires": [
             [
@@ -6481,7 +6263,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1285,
+        "x": 985,
         "y": 240,
         "wires": [
             [
@@ -6496,7 +6278,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "z": "777823ab3e1fee97",
         "name": "",
         "registerShowMax": "2",
-        "x": 1425,
+        "x": 1125,
         "y": 280,
         "wires": [],
         "l": false
@@ -6506,14 +6288,14 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "type": "function",
         "z": "777823ab3e1fee97",
         "name": "",
-        "func": "// เอามิลลิวินาทีคูณ 100 ให้ได้รูปแบบสากล จากนั้นนำ 1 นาทีมาหาร (60000 มิลลิวินาที) จะได้จำนวนครั้ง\n// เอาค่าที่ได้มาคูณกับระยะห่างต่อ 1 ฟัน จะได้เป็นเซนติเมตร จากนั้นหาร 100 เพื่อเปลี่ยนหน่วยเป็นเมตร จะได้ค่าเมตรต่อนาทีกลับมา\n\nconst milisec = Number(msg.payload * 100);\nconst grea = global.get(\"config.state.gearratio\");\nconst cir = global.get(\"config.state.circumferance\");\nconst gap = Number((cir / grea).toFixed(2));\nconst milPmin = 60000 / milisec ;\nconst mpm = Number((milPmin * gap)/ 100).toFixed(2);\nconst parsempm = +mpm != Infinity ? mpm : 0;\nconst parsminPmin = milPmin != Infinity ? milPmin : 0;\n\nglobal.set(\"config.state.plc.spdg\", parsempm);\n\nnode.status({ fill: milisec == 0 ? \"red\" : \"blue\", \nshape: \"dot\", text: `ระยะห่างต่อฟัน:${gap} เวลาต่อฟัน:${milisec} จำนวนฟันต่อนาที:${parsminPmin} เมตรต่อนาที:${parsempm}`});\n\nreturn msg;",
+        "func": "// เอามิลลิวินาทีคูณ 100 ให้ได้รูปแบบสากล จากนั้นนำ 1 นาทีมาหาร (60000 มิลลิวินาที) จะได้จำนวนครั้ง\n// เอาค่าที่ได้มาคูณกับระยะห่างต่อ 1 ฟัน จะได้เป็นเซนติเมตร จากนั้นหาร 100 เพื่อเปลี่ยนหน่วยเป็นเมตร จะได้ค่าเมตรต่อนาทีกลับมา\n\nconst milisec = Number(msg.payload * 100);\nconst grea = global.get(\"config.constant.gearratio\");\nconst cir = global.get(\"config.constant.circumferance\");\nconst gap = Number((cir / grea).toFixed(2));\nconst milPmin = 60000 / milisec ;\nconst mpm = Number((milPmin * gap)/ 100).toFixed(2);\nconst parsempm = +mpm != Infinity ? mpm : 0;\nconst parsminPmin = milPmin != Infinity ? milPmin : 0;\n\nglobal.set(\"config.state.plc.spdg\", parsempm);\n\nnode.status({ fill: milisec == 0 ? \"red\" : \"blue\", \nshape: \"dot\", text: `ระยะห่างต่อฟัน:${gap} เวลาต่อฟัน:${milisec} จำนวนฟันต่อนาที:${parsminPmin} เมตรต่อนาที:${parsempm}`});\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1300,
+        "x": 1000,
         "y": 340,
         "wires": [
             []
@@ -6541,7 +6323,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "once": true,
         "onceDelay": "1",
         "topic": "config",
-        "x": 212.00000762939453,
+        "x": 132.00000762939453,
         "y": 545,
         "wires": [
             [
@@ -6573,7 +6355,7 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "once": true,
         "onceDelay": "5",
         "topic": "delete",
-        "x": 190,
+        "x": 110,
         "y": 576,
         "wires": [
             [
@@ -6584,31 +6366,12 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "l": false
     },
     {
-        "id": "6640a6b528aefbf4",
-        "type": "debug",
-        "z": "777823ab3e1fee97",
-        "g": "6be6c492a2953951",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 635,
-        "y": 140,
-        "wires": [],
-        "l": false
-    },
-    {
         "id": "b2405502e54e677a",
         "type": "function",
         "z": "777823ab3e1fee97",
         "g": "6be6c492a2953951",
         "name": "",
-        "func": "const mArr = global.get('values.meter');\nconst h_ = global.get(\"config.datetime.hour\");\nconst m_ = global.get(\"config.datetime.minute\");\nconst s_ = global.get(\"config.datetime.second\");\nconst time = `${h_}:${m_}:${s_}`;\nconst hour = global.get('config.datetime.hour');\nconst pulse_main = shiftBit(msg.payload[0], msg.payload[1]);\nconst weft = global.get(\"config.state.products.weft\");\nglobal.set(\"config.state.plc.pulse_main\", pulse_main);\n\nconst pulse_main_spd_motor = fomula_meter(pulse_main);\nglobal.set(\"config.state.plc.pulse_main_spd\", pulse_main_spd_motor);\n\nmArr.splice(Number(hour), 1, pulse_main_spd_motor);\n\nnode.status({ fill: \"red\", shape: \"ring\", text: `${time} | ${pulse_main} : ${pulse_main_spd_motor} m`});\n\nif (+s_ === 59) {\n    return msg;\n}   \n\nfunction shiftBit(l, h) {\n    return (h << 16) | l;\n}\n\nfunction fomula_meter(pulse) {\n    const fomula = ((pulse / weft) * 2.54) / 100 ;\n    const result = Math.trunc(fomula * 100) / 100;\n    return result;\n}\n",
+        "func": "const mArr = global.get('values.meter');\nconst h_ = global.get(\"config.datetime.hour\");\nconst m_ = global.get(\"config.datetime.minute\");\nconst s_ = global.get(\"config.datetime.second\");\nconst time = `${h_}:${m_}:${s_}`;\nconst hour = global.get('config.datetime.hour');\nconst pulse_main = shiftBit(msg.payload[0], msg.payload[1]);\nconst weft = global.get(\"config.constant.products.weft\");\nglobal.set(\"config.state.plc.pulse_main\", pulse_main);\n\nconst pulse_main_spd_motor = fomula_meter(pulse_main);\nglobal.set(\"config.state.plc.pulse_main_spd\", pulse_main_spd_motor);\n\nconst pulse = global.get(\"config.state.plc.pulse\");\nconst cir = global.get(\"config.constant.circumferance\");\nconst gear = global.get(\"config.constant.gearratio\");\nconst m = fomulaPulseTakeup(pulse,gear,cir);\nmArr.splice(Number(hour), 1, m);\n    global.set(\"meter_main\", pulse_main_spd_motor);\nnode.status({ fill: \"red\", shape: \"ring\", text: `${time} main|${pulse_main_spd_motor} m take| f:${m} m`});\n\nif (+s_ === 59) {\n    return msg;\n}   \n\nfunction shiftBit(l, h) {\n    return (h << 16) | l;\n}\n\nfunction fomula_meter(pulse) {\n    const fomula = ((pulse / weft) * 2.54) / 100 ;\n    const result = Math.trunc(fomula * 100) / 100;\n    return result;\n}\n\nfunction fomulaPulseTakeup(pulse, gear, cir) {\n    const gap = Math.trunc((cir/gear) * 100) /100;\n    const fomula = Math.trunc((pulse * gap / 100) * 100) / 100;\n    return fomula;\n}\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -6706,8 +6469,8 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 825,
-        "y": 160,
+        "x": 835,
+        "y": 180,
         "wires": [],
         "l": false
     },
@@ -6717,13 +6480,32 @@ cat << 'EOF' > /home/orangepi/.node-red/flows.json
         "z": "777823ab3e1fee97",
         "g": "6be6c492a2953951",
         "name": "",
-        "x": 699,
+        "x": 711,
         "y": 188,
         "wires": [
             [
                 "f7544cee331cef91"
             ]
         ]
+    },
+    {
+        "id": "eb4afad08553b36c",
+        "type": "debug",
+        "z": "777823ab3e1fee97",
+        "g": "6be6c492a2953951",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 145,
+        "y": 240,
+        "wires": [],
+        "l": false
     }
 ]
 EOF
