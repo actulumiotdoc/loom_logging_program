@@ -1,5 +1,10 @@
 #!/bin/bash
-cat << 'EOF' > /home/orangepi/.node-red/flows.json
+flows=/home/orangepi/.node-red/flows.json
+
+#เพิ่มข้อมูล telegram token chatid ด้วย jq
+jq '. + {"botToken": "8997867188:AAFFqHh69xt0dfo2nfGkW_srMhgW-3IOEtM", "chatId": "-1004482110270"}' /home/orangepi/telemetry/conf.json > tmp.json && mv tmp.json /home/orangepi/telemetry/conf.json
+
+cat << 'EOF' > $flows
 [
     {
         "id": "777823ab3e1fee97",
